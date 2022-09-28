@@ -1,0 +1,13 @@
+.titulo
+{
+    color: blueviolet;
+    text-align: center;
+}
+
+.img
+{
+    width: 500px;
+    height: 500px;
+    display: block; /* Transforma/coloca a imagem em bloco */
+    margin: 0 auto;
+}
