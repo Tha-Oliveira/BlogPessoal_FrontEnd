@@ -16,7 +16,8 @@ import AdbIcon from "@mui/icons-material/Adb";
 const pages = ["Home", "Postagens", "Tema", "Cadastrar Tema"];
 const settings = ["Perfil", "Conta", "Logout"];
 
-const Navbar = () => {
+function Navbar ()
+{
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
