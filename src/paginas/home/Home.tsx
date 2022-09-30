@@ -2,21 +2,23 @@ import { Button, Typography } from "@material-ui/core";
 import { Box, Grid } from "@mui/material";
 import React from "react";
 import "./Home.css";
+import { blueGrey, cyan } from '@mui/material/colors';
 
 function Home()
 {
     return (
         <>
-            <Grid container direction="row" justifyContent="center" alignItems="center" style={{ backgroundColor: "#3F51B5" }}>
+            <Grid container direction="row" justifyContent="center" alignItems="center" style={{ backgroundColor: cyan[100] }}>
                 <Grid alignItems="center" item xs={6}>
                     <Box paddingX={20} >
-                        <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" style={{ color: "white", fontWeight: "bold" }}>Seja bem vindo(a)!</Typography>
-                        <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" style={{ color: "white", fontWeight: "bold" }}>Compartilhe comigo suas idéias e opiniões!</Typography>
+                        <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" style={{ color: blueGrey[700], fontWeight: "bold" }}>Seja bem vindo(a)!</Typography>
+                        <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" style={{ color: blueGrey[700], fontWeight: "bold" }}>Compartilhe comigo suas idéias e opiniões!</Typography>
                     </Box>
                     <Box display="flex" justifyContent="center">
                         <Box marginRight={1}>
                         </Box>
-                        <Button variant="outlined" style={{ borderColor: "white", backgroundColor: "#3F51B5", color: "white" }}>Ver Postagens</Button>
+                        <Button variant="outlined" style={{ borderColor: "white", backgroundColor: cyan[500], color: "white" }}>Nova Postagem</Button>
+                        <Button variant="outlined" style={{ borderColor: "white", backgroundColor: cyan[500], color: "white" }}>Ver Postagens</Button>
                     </Box>
                 </Grid>
                 <Grid item xs={6} >
