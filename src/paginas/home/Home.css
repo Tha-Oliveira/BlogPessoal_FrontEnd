@@ -1,13 +1,22 @@
-.titulo
+.caixa
 {
-    color: blueviolet;
-    text-align: center;
+    background-color: #b2ebf2;
 }
 
-.img
+.titulo
 {
-    width: 500px;
-    height: 500px;
-    display: block; /* Transforma/coloca a imagem em bloco */
-    margin: 0 auto;
+    color: #0097a7 !important; /* !important  = diz que essa função tem mais importacia do que a configuração do material ui*/
+    font-weight: bold !important;
+}
+
+.botao
+{
+    border-color: #fff !important;
+    background: #00bcd4 !important;
+    color: #fff !important;
+}
+
+.postagens
+{
+    background-color: #fff;
 }
