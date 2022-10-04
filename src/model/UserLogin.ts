@@ -1,4 +1,4 @@
-interface user
+interface userLogin
 {
     id: number;
     nome: string;
@@ -7,4 +7,4 @@ interface user
     foto: string;
 }
 
-export default user;
+export default userLogin;

@@ -1,7 +1,7 @@
 import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import React, { ChangeEvent, useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
-import User from "../../model/User";
+import User from "../../model/UserLogin";
 import {cadUsuario} from '../../services/Service'
 
 
