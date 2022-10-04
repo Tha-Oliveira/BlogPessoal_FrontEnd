@@ -1,4 +1,4 @@
-interface userLogin
+interface cadastrarUsuario
 {
     id: number;
     nome: string;
@@ -7,4 +7,4 @@ interface userLogin
     foto: string;
 }
 
-export default userLogin;
+export default cadastrarUsuario;
