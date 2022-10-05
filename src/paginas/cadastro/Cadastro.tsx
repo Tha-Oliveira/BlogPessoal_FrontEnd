@@ -3,6 +3,7 @@ import React, { ChangeEvent, useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
 import User from "../../model/Cadastro";
 import {cadUsuario} from '../../services/Service'
+import "./Cadastro.css";
 
 function Cadastro()
 {
@@ -68,6 +69,7 @@ function Cadastro()
     return(
         <Grid container direction="row" justifyContent="center" alignItems="center">
             <Grid item xs={6} className="imagem2"></Grid>
+
             <Grid item xs={6} alignItems="center">
                 <Box paddingX={10}>
                 <form onSubmit={onSubmit}>
@@ -75,16 +77,19 @@ function Cadastro()
                             Cadastrar
                         </Typography>
                         <TextField value={user.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} 
-                        id="nome" name="nome" label="Nome" variant="outlined" margin="normal" fullWidth />
+                        required id="nome" name="nome" label="Nome" variant="outlined" margin="normal" fullWidth />
 
                         <TextField value={user.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} 
-                        id="usuario" name="usuario" label="Usuário" variant="outlined" margin="normal" fullWidth />
+                        required id="usuario" name="usuario" label="Usuário" variant="outlined" margin="normal" fullWidth />
 
                         <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} 
-                        id="senha" name="senha" label="Senha" variant="outlined" margin="normal" type="password" fullWidth />
+                        required id="senha" name="senha" label="Senha" variant="outlined" margin="normal" type="password" fullWidth />
 
                         <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} 
-                        id="confirmarSenha" name="confirmarSenha" label="Confirmar Senha" variant="outlined" margin="normal" fullWidth />
+                        required id="confirmarSenha" name="confirmarSenha" label="Confirmar Senha" variant="outlined" margin="normal" type="password" fullWidth />
+
+                        <TextField value={user.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} 
+                        id="foto" name="foto" label="Foto" variant="outlined" margin="normal" fullWidth />
                         <Box marginTop={2} textAlign="center">
                         <Button type="submit" variant="contained" color="primary" className="btnCadastrar">
                                     Cadastrar
