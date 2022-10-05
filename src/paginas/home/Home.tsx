@@ -3,6 +3,7 @@ import { Box, Grid } from "@mui/material";
 import React from "react";
 import "./Home.css";
 import { cyan } from '@mui/material/colors';
+import TabPostagem from "../../componentes/postagens/tabPostagem/TabPostagem";
 
 function Home()
 {
@@ -25,6 +26,7 @@ function Home()
                     <img src="https://cdn.pixabay.com/photo/2019/06/13/09/41/business-4271251_960_720.png" alt="Ilustração de programador" width="500px" height="500px" />
                 </Grid>
                 <Grid xs={12} className="postagens">
+                    <TabPostagem />
                 </Grid>
             </Grid>
         </>

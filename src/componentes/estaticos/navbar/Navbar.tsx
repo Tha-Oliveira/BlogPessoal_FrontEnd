@@ -59,15 +59,15 @@ function Navbar()
             </Typography>
           </Box>
 
-          <Box mx={1} className="cousor">
+          <Box mx={1} className="cursor">
             <Typography variant="h6" color="inherit">
               Temas
             </Typography>
           </Box>
 
-          <Box mx={1} className="cousor">
+          <Box mx={1} className="cursor">
             <Typography variant="h6" color="inherit">
-              Cadastrar Tema
+              Cadastrar Temas
             </Typography>
           </Box>
           </Box>

@@ -1,22 +1,35 @@
-.redes
-{
-    font-size: 30px !important;
-    color: #fff;
+.box1 {
+    background-color:#8a2be2;
+    height:120px;
 }
 
-.box1
-{
-    background-color: #00838f;
-    height: 60px;
+.box2 {
+    background-color:white;
+    height:60px;
 }
 
-.box2
-{
-    background-color: #00838f;
-    height: 50px;
+.redes {
+    font-size: 50px !important;
+    color:white;
 }
 
-.textos
-{
-    color: #fff;
+.github {
+    font-size: 40px !important;
+    color:white;
+    margin-right: 5px;
+}
+
+.social {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+
+.texto1 {
+    color:white;
+    font-size: 18px !important;
+}
+
+.texto2 {
+    color:#8a2be2;
 }
