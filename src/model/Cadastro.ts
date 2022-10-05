@@ -5,6 +5,7 @@ interface cadastrarUsuario
     usuario: string;
     senha: string;
     foto: string;
+   // postagem: Postagem [];
 }
 
 export default cadastrarUsuario;

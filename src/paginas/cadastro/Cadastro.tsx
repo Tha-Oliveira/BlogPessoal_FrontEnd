@@ -1,10 +1,8 @@
 import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import React, { ChangeEvent, useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
-import User from "../../model/UserLogin";
+import User from "../../model/Cadastro";
 import {cadUsuario} from '../../services/Service'
-
-
 
 function Cadastro()
 {
@@ -49,14 +47,21 @@ function Cadastro()
     async function onSubmit(e:ChangeEvent<HTMLFormElement>)
     {
         e.preventDefault();
-        if(confirmarSenha == user.senha)
+        if(confirmarSenha === user.senha && user.senha.length >= 8)
         {
-            cadUsuario(`usuarios/cadastrar`, user, setUserResult)
-            alert("Usuário cadastrado com sucesso!");
+            try
+            {
+                await cadUsuario ("usuarios/cadastrar", user, setUserResult);
+                alert("Usuário cadastrado com sucesso!");
+            }
+            catch (error)
+            {
+                alert("Falha ao cadastrar o usuário. Por favor, confira os campos!")
+            }
         } 
         else
         {
-            alert("Erro ao cadastrar. Por favaor, verifique suas informações!");
+            alert("Senhas divergentes, ou menores que 8 caracteres. Por favor, verifique os campos!");
         }
     }
 
