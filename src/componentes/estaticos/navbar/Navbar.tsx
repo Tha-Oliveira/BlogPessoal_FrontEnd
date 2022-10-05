@@ -3,9 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, IconButton, Box, MenuItem, Menu } from "@mui/material"
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import { cyan } from '@mui/material/colors';
 import { Link } from 'react-router-dom';
 import "./Navbar.css"
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -38,7 +38,7 @@ function Navbar()
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" style={{ borderColor: "white", backgroundColor: cyan[500], color: "white" }}>
+      <AppBar position="static" style={{ borderColor: "black", backgroundColor: "#ffebee", color: "black" }}>
       <Toolbar>
         <Box>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
@@ -46,33 +46,33 @@ function Navbar()
           </IconButton>
         </Box>
 
-          <Box display="flex" justifyContent="start">
+          <Box display="flex" justifyContent="start" className="menu">
             <Box mx={1} className="cursor">
-                  <Typography variant="h6" color="inherit">
+                  <Typography color="inherit">
                     Home
                   </Typography>
             </Box>
 
-          <Box mx={1} className="cursor">
-            <Typography variant="h6" color="inherit">
-              Postagens
-            </Typography>
+            <Box mx={1} className="cursor">
+              <Typography color="inherit">
+                Postagens
+              </Typography>
+            </Box>
+
+            <Box mx={1} className="cursor">
+              <Typography color="inherit">
+                Temas
+              </Typography>
+            </Box>
+
+            <Box mx={1} className="cursor">
+              <Typography color="inherit">
+                Cadastrar Temas
+              </Typography>
+            </Box>
           </Box>
 
-          <Box mx={1} className="cursor">
-            <Typography variant="h6" color="inherit">
-              Temas
-            </Typography>
-          </Box>
-
-          <Box mx={1} className="cursor">
-            <Typography variant="h6" color="inherit">
-              Cadastrar Temas
-            </Typography>
-          </Box>
-          </Box>
-
-          <Typography variant="h6" className={classes.title}></Typography>
+          <Typography className={classes.title}></Typography>
           <Box className="cursor" ></Box>
 
           {auth && (

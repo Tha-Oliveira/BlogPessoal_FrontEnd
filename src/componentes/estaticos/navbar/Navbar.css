@@ -1,6 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 .cursor
 {
     cursor: pointer;
+}
+.menu
+{
+    font-family: "Indie Flower", cursive;
+    display: flex;
+    max-width: 260px;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    list-style: none;
+    margin-left: 500px;
+    letter-spacing: 1rem;
 }
 
 .text-decorator-none

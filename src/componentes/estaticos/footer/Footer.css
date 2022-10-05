@@ -1,5 +1,5 @@
 .box1 {
-    background-color:#8a2be2;
+    background-color: #b2ebf2;
     height:120px;
 }
 
@@ -10,12 +10,12 @@
 
 .redes {
     font-size: 50px !important;
-    color:white;
+    color:#263238;
 }
 
 .github {
     font-size: 40px !important;
-    color:white;
+    color:#263238;
     margin-right: 5px;
 }
 
@@ -25,8 +25,13 @@
     justify-content: center;
 }
 
+.social:hover
+{
+    filter: drop-shadow(50px 50px 50px color= purple) !important;
+}
+
 .texto1 {
-    color:white;
+    color:#546e7a;
     font-size: 18px !important;
 }
 
