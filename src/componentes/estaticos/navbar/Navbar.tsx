@@ -3,8 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, IconButton, Box, MenuItem, Menu } from "@mui/material"
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import "./Navbar.css"
+import useLocalStorage from 'react-use-localstorage';
 
 
 
@@ -22,6 +23,17 @@ const useStyles = makeStyles((theme) => ({
 
 function Navbar() 
 {
+  const [token, setToken] = useLocalStorage ("token")
+  let navigate = useNavigate()
+  
+  function goLogout()
+  {
+    setToken("")
+    alert("Volte sempre 😉")
+    navigate("/login")
+  }
+
+
   const classes = useStyles();
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -38,7 +50,7 @@ function Navbar()
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" style={{ borderColor: "black", backgroundColor: "#ffebee", color: "black" }}>
+      <AppBar position="static" style={{ borderColor: "black", backgroundColor: "#154194", color: "white" }}>
       <Toolbar>
         <Box>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
@@ -47,29 +59,37 @@ function Navbar()
         </Box>
 
           <Box display="flex" justifyContent="start" className="menu">
+            <Link to="/home" className="text-decorator-none">
             <Box mx={1} className="cursor">
-                  <Typography color="inherit">
+                  <Typography color="white">
                     Home
                   </Typography>
             </Box>
+            </Link>
 
+            <Link to="/posts" className="text-decorator-none">
             <Box mx={1} className="cursor">
-              <Typography color="inherit">
+              <Typography color="white">
                 Postagens
               </Typography>
             </Box>
+            </Link>
 
+            <Link to="/temas" className="text-decorator-none">
             <Box mx={1} className="cursor">
-              <Typography color="inherit">
+              <Typography color="white">
                 Temas
               </Typography>
             </Box>
+            </Link>
 
+            <Link to="/formularioTema" className="text-decorator-none">
             <Box mx={1} className="cursor">
-              <Typography color="inherit">
+              <Typography color="white">
                 Cadastrar Temas
               </Typography>
             </Box>
+            </Link>
           </Box>
 
           <Typography className={classes.title}></Typography>
@@ -103,10 +123,7 @@ function Navbar()
               >
                 <MenuItem onClick={handleClose}>Perfil</MenuItem>
                 <MenuItem onClick={handleClose}>Minha conta</MenuItem>
-
-                <Link to="/login" className="text-decorator-none">
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
-                </Link>
+                <MenuItem onClick={goLogout}>Logout</MenuItem>
               </Menu>
             </div>
           )}

@@ -8,6 +8,10 @@ import Cadastro from "./paginas/cadastro/Cadastro"
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import ListaTema from './componentes/temas/listaTema/ListaTema'
 import ListaPostagem from './componentes/postagens/listaPostagem/ListaPostagem';
+import CadastroPost from './componentes/postagens/cadastroPost/CadastroPost';
+import CadastroTema from './componentes/temas/cadastroTema/CadastroTema';
+import DeletarPostagem from './componentes/postagens/deletarPostagem/DeletarPostagem';
+import DeletarTema from './componentes/temas/deletarTema/DeletarTema';
 
 function App() 
 {
@@ -23,6 +27,12 @@ function App()
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/temas" element={<ListaTema />} />
           <Route path="/posts" element={<ListaPostagem />} />
+          <Route path="/formularioPostagem" element={<CadastroPost />} />
+          <Route path="/formularioPostagem/:id" element={<CadastroPost />} />
+          <Route path="/formularioTema" element={<CadastroTema />} />
+          <Route path="/formularioTema/:id" element={<CadastroTema />} />
+          <Route path="/deletarPostagem/:id" element={<DeletarPostagem />} />
+          <Route path="/deletarTema/:id" element={<DeletarTema />} />
 
         </Routes>
       </div>
