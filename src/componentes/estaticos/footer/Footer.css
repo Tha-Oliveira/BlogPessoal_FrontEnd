@@ -1,5 +1,5 @@
 .box1 {
-    background-color: #b2ebf2;
+    background-color: #154194;
     height:120px;
 }
 
@@ -10,12 +10,12 @@
 
 .redes {
     font-size: 50px !important;
-    color:#263238;
+    color:#f1f2f6;
 }
 
 .github {
     font-size: 40px !important;
-    color:#263238;
+    color:#f1f2f6;
     margin-right: 5px;
 }
 
@@ -31,7 +31,7 @@
 }
 
 .texto1 {
-    color:#546e7a;
+    color:#f1f2f6;
     font-size: 18px !important;
 }
 
