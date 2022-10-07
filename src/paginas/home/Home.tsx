@@ -23,7 +23,8 @@ function Home()
                     </Box>
                 </Grid>
                 <Grid item xs={6} >
-                    <img src="https://cdn.pixabay.com/photo/2019/06/13/09/41/business-4271251_960_720.png" alt="Ilustração de programador" width="500px" height="500px" />
+                    <img src="https://cdn.pixabay.com/photo/2020/02/15/16/09/loveourplanet-4851331_960_720.jpg" alt="Imagem de uma garota segurando os plantas" 
+                    className="img" width="500px" height="500px" />
                 </Grid>
                 <Grid xs={12} className="postagens">
                     <TabPostagem />
