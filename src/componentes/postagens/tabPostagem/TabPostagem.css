@@ -2,3 +2,8 @@
 {
     font-weight: bold;
 }
+
+.barra
+{
+    background: linear-gradient(to top left, #003399 0%, #99ccff 70%);
+}

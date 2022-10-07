@@ -84,7 +84,7 @@ function Navbar()
             </Link>
 
             <Link to="/formularioTema" className="text-decorator-none">
-            <Box mx={1} className="cursor">
+            <Box mx={1} className="cursor"> {/* mx é o espaçamento entre os elementos */}
               <Typography color="white">
                 Cadastrar Temas
               </Typography>

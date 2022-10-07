@@ -2,7 +2,6 @@ import { Button, Typography } from "@material-ui/core";
 import { Box, Grid } from "@mui/material";
 import React from "react";
 import "./Home.css";
-import { cyan } from '@mui/material/colors';
 import TabPostagem from "../../componentes/postagens/tabPostagem/TabPostagem";
 
 function Home()

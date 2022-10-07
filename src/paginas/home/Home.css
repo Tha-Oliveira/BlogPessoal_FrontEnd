@@ -12,8 +12,9 @@
 .botao
 {
     border-color: #fff !important;
-    background: #00bcd4 !important;
+    background: linear-gradient(to top left, #3333ff 0%, #ccffff 100%);
     color: #fff !important;
+    margin-right: 1rem !important;
 }
 
 .postagens
