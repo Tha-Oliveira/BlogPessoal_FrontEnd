@@ -5,7 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 import Postagem from "../../../model/Postagem";
 import useLocalStorage from "react-use-localstorage";
 import { busca } from "../../../services/Service";
-import { getHeapCodeStatistics } from "v8";
 
 function ListaPostagem()
 {
