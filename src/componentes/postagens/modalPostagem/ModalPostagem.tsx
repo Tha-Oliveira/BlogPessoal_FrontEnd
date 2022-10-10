@@ -6,7 +6,8 @@ import './ModalPostagem.css';
 import CadastroPost from '../cadastroPost/CadastroPost';
 import { Box, Modal } from '@mui/material';
 
-function getModalStyle() {
+function getModalStyle() 
+{
     const top = 50;
     const left = 50;
 
@@ -56,7 +57,7 @@ function getModalStyle() {
 
     return (
       <div>
-        <Button variant="outlined" className="btnModal" onClick={handleOpen}>
+        <Button variant="outlined" className="botao" onClick={handleOpen}>
           Nova Postagem
         </Button>
         <Modal
@@ -68,6 +69,6 @@ function getModalStyle() {
         </Modal>
       </div>
     );
-  }
+}
   
   export default ModalPostagem;

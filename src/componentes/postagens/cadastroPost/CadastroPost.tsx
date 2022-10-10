@@ -114,7 +114,7 @@ function back()
                         })}>
                             {
                                 temas.map(tema => (
-                                    <MenuItem defaultValue={tema.id}>{tema.descricao}</MenuItem>
+                                    <MenuItem value={tema.id}>{tema.descricao}</MenuItem>
                                 ))
                             }
                     </Select>
