@@ -9,6 +9,8 @@ function Cadastro()
 {
     let navigate = useNavigate();
     const [confirmarSenha, setConfirmarSenha] = useState("");
+    const [cadastro, setCadastro] = useState(false)
+
     const [user, setUser] = useState <User> ({
         id: 0,
         nome: "",
@@ -24,6 +26,13 @@ function Cadastro()
         senha: "",
         foto: "",
     })
+
+    useEffect(() => {
+        if(user.nome.length > 3 && user.usuario !== "" && user.senha.length >= 8)
+        {
+            setCadastro(true)
+        }
+}, [user])
 
     useEffect(() => {
         if (userResult.id !== 0)
@@ -91,7 +100,7 @@ function Cadastro()
                         <TextField value={user.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} 
                         id="foto" name="foto" label="Foto" variant="outlined" margin="normal" fullWidth />
                         <Box marginTop={2} textAlign="center">
-                        <Button type="submit" variant="contained" color="primary" className="btnCadastrar">
+                        <Button type="submit" variant="contained" color="primary" className="btnCadastrar" disabled={!cadastro}>
                                     Cadastrar
                                 </Button>
                             <Link to="/login" className="text-decorator-none">

@@ -5,6 +5,7 @@ import { Box, Grid, Typography, TextField, Button } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import useLocalStorage from "react-use-localstorage";
 import { login } from "../../services/Service";
+import { setFlagsFromString } from "v8";
 
 function Login()
 {
@@ -27,6 +28,15 @@ const [token, setToken] = useLocalStorage("token");
             [e.target.name]: e.target.value
         })
     }
+
+    useEffect(() => {
+        if(usuarioLogin.usuario !== "" && usuarioLogin.senha.length >= 8)
+        {
+            setForm(true)
+        }
+    }, [usuarioLogin])
+
+    const [form, setForm] = useState(false)
 
     async function onSubmit(e:ChangeEvent<HTMLFormElement>)
     {
@@ -63,7 +73,7 @@ const [token, setToken] = useLocalStorage("token");
                         <TextField value={usuarioLogin.senha} onChange={(e:ChangeEvent<HTMLInputElement>) => updateModel(e)} 
                         id="senha" name="senha" label="Senha" variant="outlined" margin="normal" type="password" fullWidth />
                         <Box marginTop={2} textAlign="center">
-                                <Button type="submit" variant="contained" color="primary">
+                                <Button type="submit" variant="contained" color="primary" disabled={!form}>
                                     Logar
                                 </Button>
                         </Box>
