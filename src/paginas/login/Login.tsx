@@ -14,7 +14,7 @@ let navigate = useNavigate();
 const dispatch = useDispatch()
 const [token, setToken] = useState ("")
 
-    const [usuarioLogin, setUsuarioLogin] = useState <UsuarioLogin> ({
+    const [usuarioLogin, setUsuarioLogin] = useState <UsuarioLogin> ({ //hook useState faz o controle dos estados dos componentes,set permite alterar
         id: 0,
         nome: "",
         usuario: "",
@@ -23,7 +23,7 @@ const [token, setToken] = useState ("")
         token: ""
     })
 
-    function updateModel(e: ChangeEvent<HTMLInputElement>)
+    function updateModel(e: ChangeEvent<HTMLInputElement>) //aciona as funções digitadas, captura os valores e passa pra updatmodel que joga pra setuser e usa o usestate para atualizar a model
     {
         setUsuarioLogin ({
             ...usuarioLogin,
@@ -32,7 +32,7 @@ const [token, setToken] = useState ("")
     }
 
     useEffect(() => {
-        if(usuarioLogin.usuario !== "" && usuarioLogin.senha.length >= 8)
+        if(usuarioLogin.usuario !== "" && usuarioLogin.senha.length >= 8) 
         {
             setForm(true)
         }
@@ -40,25 +40,24 @@ const [token, setToken] = useState ("")
 
     const [form, setForm] = useState(false)
 
-    async function onSubmit(e:ChangeEvent<HTMLFormElement>)
+    async function onSubmit(e:ChangeEvent<HTMLFormElement>) //envia os dados de login do usuario
     {
-        e.preventDefault();
-        try 
+        e.preventDefault(); //impede que o botao atualize a tela 
+        try  //tentativa de execução
         {
             await login(`usuarios/logar`, usuarioLogin, setToken)
             toast.success("Usuário logado com sucesso!", {
                 position: "top-right", autoClose: 2000, hideProgressBar: false, closeOnClick: true, pauseOnHover: false, draggable: false, theme: "colored", progress: undefined})
         } 
-        catch (error)
+        catch (error) 
         {
             toast.error("Login ou senha inválidos!", {
                 position: "top-right", autoClose: 2000, hideProgressBar: false, closeOnClick: true, pauseOnHover: false, draggable: false, theme: "colored", progress: undefined})
-            
         }
     }
 
     useEffect(() => {
-        if (token !== "")
+        if (token !== "") //se o token nao estiver vazio, redireciona para home
         {
             dispatch(addToken(token))
             navigate("/home")
@@ -67,8 +66,8 @@ const [token, setToken] = useState ("")
 
     return(
         <Grid container direction="row" justifyContent="center" alignItems="center">
-            <Grid alignItems="center" xs={6}>
-                <Box paddingX={20}>
+            <Grid alignItems="center" xs={6} className="imagem">
+                <Box paddingX={20} className="sombra">
                     <form onSubmit={onSubmit}>
                         <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" className="textos1">
                             Entrar
@@ -80,7 +79,7 @@ const [token, setToken] = useState ("")
                         id="senha" name="senha" label="Senha" variant="outlined" margin="normal" type="password" fullWidth />
                         <Box marginTop={2} textAlign="center">
                                 <Button type="submit" variant="contained" color="primary" disabled={!form}>
-                                    Logar
+                                    Entrar
                                 </Button>
                         </Box>
                     </form>
@@ -99,9 +98,7 @@ const [token, setToken] = useState ("")
                 </Box>
             </Grid>
 
-            <Grid xs={6} className="imagem"> {/* Trocar foto */}
-                
-            </Grid>
+
         </Grid>
     );
 }
