@@ -3,6 +3,7 @@ import { Container } from "@mui/system";
 import React, { ChangeEvent, useEffect, useState } from "react"
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import Postagem from "../../../model/Postagem";
 import Tema from "../../../model/Tema";
 import { busca, buscaId, post, put } from "../../../services/Service";
@@ -21,7 +22,8 @@ const token = useSelector<TokenState, TokenState ["tokens"] >(
 useEffect(() => {
     if(token === "")
     {
-        alert ("Ops! Parece que você não está logado")
+        toast.error("Ops! Parece que você não está logado", {
+            position: "top-right", autoClose: 2000, hideProgressBar: false, closeOnClick: true, pauseOnHover: false, draggable: false, theme: "colored", progress: undefined})
         navigate ("/login")
     }
 }, [token])
@@ -84,14 +86,16 @@ async function onSubmit(e: ChangeEvent<HTMLFormElement>)
         put(`postagens`, postagem, setPostagem, {
             headers: {"Authorization": token}
         })
-        alert ("Postagem atualizada com sucesso!")
+        toast.success("Postagem atualizada com sucesso!", {
+            position: "top-right", autoClose: 2000, hideProgressBar: false, closeOnClick: true, pauseOnHover: false, draggable: false, theme: "colored", progress: undefined})
     }
     else
     {
         post(`postagens`, postagem, setPostagem, {
             headers: {"Authorization": token}
         })
-        alert ("Postagem cadastrada com sucesso!")
+        toast.success("Postagem cadastrada com sucesso!", {
+            position: "top-right", autoClose: 2000, hideProgressBar: false, closeOnClick: true, pauseOnHover: false, draggable: false, theme: "colored", progress: undefined})
     }
     back()
 }

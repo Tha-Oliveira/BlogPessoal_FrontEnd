@@ -6,6 +6,7 @@ import Postagem from "../../../model/Postagem";
 import { busca } from "../../../services/Service";
 import { useSelector } from "react-redux";
 import { TokenState } from "../../../store/tokens/TokensReducer";
+import { toast } from "react-toastify";
 
 function ListaPostagem()
 {
@@ -18,7 +19,8 @@ function ListaPostagem()
     useEffect(() =>{
         if (token === "")
         {
-            alert ("Ops! Parece que não está logado.")
+            toast.error("Ops! Parece que você não está logado", {
+                position: "top-right", autoClose: 2000, hideProgressBar: false, closeOnClick: true, pauseOnHover: false, draggable: false, theme: "colored", progress: undefined})
             navigate ("/login")
         }
     }, [token])

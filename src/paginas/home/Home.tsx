@@ -7,6 +7,7 @@ import ModalPostagem from "../../componentes/postagens/modalPostagem/ModalPostag
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { TokenState } from "../../store/tokens/TokensReducer";
+import { toast } from "react-toastify";
 
 function Home()
 {
@@ -19,7 +20,8 @@ function Home()
     {
         if (token === "") 
         {
-            alert("Ops! Parece que você não está logado")
+            toast.error("Ops! Parece que você não está logado", {
+                position: "top-right", autoClose: 2000, hideProgressBar: false, closeOnClick: true, pauseOnHover: false, draggable: false, theme: "colored", progress: undefined})
             navigate ("/login")
         }
     }, [token])
@@ -30,7 +32,8 @@ function Home()
                 <Grid alignItems="center" item xs={6}>
                     <Box paddingX={20} >
                         <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" className="titulo">Seja bem vindo(a)!</Typography>
-                        <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className="titulo">Deixe aqui a sua sugestão de viagem ou passeio!</Typography>
+                        <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className="titulo">Deixe aqui a sua sugestão de viagem ou passeio!
+                        </Typography>
                     </Box>
                     <Box display="flex" justifyContent="center">
                         <Box marginRight={1}>

@@ -2,6 +2,7 @@ import { Box, Button, Card, CardActions, CardContent, Typography } from "@mui/ma
 import React, { useEffect, useState } from "react"
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom"
+import { toast } from "react-toastify";
 import Tema from "../../../model/Tema";
 import { busca } from "../../../services/Service";
 import { TokenState } from "../../../store/tokens/TokensReducer";
@@ -17,7 +18,8 @@ const token = useSelector<TokenState, TokenState ["tokens"] >(
 useEffect(() =>{
     if (token === "")
     {
-        alert ("Ops! Parece que não está logado.")
+        toast.error("Ops! Parece que você não está logado", {
+            position: "top-right", autoClose: 2000, hideProgressBar: false, closeOnClick: true, pauseOnHover: false, draggable: false, theme: "colored", progress: undefined})
         navigate ("/login")
     }
 }, [token])

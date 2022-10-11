@@ -2,6 +2,7 @@ import { Box, Button, Card, CardActions, CardContent, Typography } from "@mui/ma
 import React, { useEffect, useState } from "react"
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import Tema from "../../../model/Tema";
 import { buscaId, deleteId } from "../../../services/Service";
 import { TokenState } from "../../../store/tokens/TokensReducer";
@@ -18,7 +19,8 @@ function DeletarTema()
     useEffect(() => {
         if(token === "")
         {
-            alert ("Ops! Parece que você não está logado")
+            toast.error("Ops! Parece que você não está logado", {
+                position: "top-right", autoClose: 2000, hideProgressBar: false, closeOnClick: true, pauseOnHover: false, draggable: false, theme: "colored", progress: undefined})
             navigate ("/login")
         }
     }, [token])
@@ -43,7 +45,8 @@ function DeletarTema()
         deleteId(`/temas/${id}`, {
             headers: {"Authorization": token}
         })
-        alert ("Tema deletado com sucesso!")
+        toast.success("Tema deletado com sucesso!", {
+            position: "top-right", autoClose: 2000, hideProgressBar: false, closeOnClick: true, pauseOnHover: false, draggable: false, theme: "colored", progress: undefined})
     }
 
     function nao()

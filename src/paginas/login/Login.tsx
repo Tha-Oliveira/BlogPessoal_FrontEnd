@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../services/Service";
 import { useDispatch } from "react-redux";
 import { addToken } from "../../store/tokens/Action";
+import { toast } from "react-toastify";
 
 function Login()
 {
@@ -45,11 +46,14 @@ const [token, setToken] = useState ("")
         try 
         {
             await login(`usuarios/logar`, usuarioLogin, setToken)
-            alert("Usuário logado com sucesso!");
+            toast.success("Usuário logado com sucesso!", {
+                position: "top-right", autoClose: 2000, hideProgressBar: false, closeOnClick: true, pauseOnHover: false, draggable: false, theme: "colored", progress: undefined})
         } 
         catch (error)
         {
-            alert("Login ou senha inválido!");
+            toast.error("Login ou senha inválidos!", {
+                position: "top-right", autoClose: 2000, hideProgressBar: false, closeOnClick: true, pauseOnHover: false, draggable: false, theme: "colored", progress: undefined})
+            
         }
     }
 

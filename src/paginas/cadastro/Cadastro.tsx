@@ -1,6 +1,7 @@
 import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import React, { ChangeEvent, useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import User from "../../model/Cadastro";
 import {cadUsuario} from '../../services/Service'
 import "./Cadastro.css";
@@ -62,16 +63,19 @@ function Cadastro()
             try
             {
                 await cadUsuario ("usuarios/cadastrar", user, setUserResult);
-                alert("Usuário cadastrado com sucesso!");
+                toast.success("Usuário cadastrado com sucesso!", {
+                    position: "top-right", autoClose: 2000, hideProgressBar: false, closeOnClick: true, pauseOnHover: false, draggable: false, theme: "colored", progress: undefined})
             }
             catch (error)
             {
-                alert("Falha ao cadastrar o usuário. Por favor, confira os campos!")
+                toast.error("Falha ao cadastrar o usuário. Por favor, confira os campos!", {
+                    position: "top-right", autoClose: 2000, hideProgressBar: false, closeOnClick: true, pauseOnHover: false, draggable: false, theme: "colored", progress: undefined})
             }
         } 
         else
         {
-            alert("Senhas divergentes, ou menores que 8 caracteres. Por favor, verifique os campos!");
+            toast.error("Senhas divergentes, ou menores que 8 caracteres. Por favor, verifique os campos!", {
+                position: "top-right", autoClose: 2000, hideProgressBar: false, closeOnClick: true, pauseOnHover: false, draggable: false, theme: "colored", progress: undefined})
         }
     }
 

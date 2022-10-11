@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, IconButton, Box, MenuItem, Menu } from "@mui/material"
-import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { Link, useNavigate } from 'react-router-dom';
 import "./Navbar.css"
 import { useDispatch, useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/TokensReducer';
 import { addToken } from '../../../store/tokens/Action';
+import { toast } from 'react-toastify';
 
 
 
@@ -34,7 +34,8 @@ const dispach = useDispatch();
   function goLogout()
   {
     dispach(addToken(""))
-    alert("Volte sempre 😉")
+    toast.info("Volte sempre 😉", {
+      position: "top-right", autoClose: 2000, hideProgressBar: false, closeOnClick: true, pauseOnHover: false, draggable: false, theme: "colored", progress: undefined})
     navigate("/login")
   }
 
