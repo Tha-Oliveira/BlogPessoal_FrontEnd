@@ -15,7 +15,7 @@ function Footer()
     )
     const dispach = useDispatch();
 
-    var footerComponent;
+    let footerComponent;
 
     if(token !== "")
     {

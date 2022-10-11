@@ -65,8 +65,8 @@ const [token, setToken] = useState ("")
     }, [token])
 
     return(
-        <Grid container direction="row" justifyContent="center" alignItems="center">
-            <Grid alignItems="center" xs={6} className="imagem">
+        <Grid container direction="row" justifyContent="center" alignItems="center" className="imagem">
+            <Grid alignItems="center" xs={6}>
                 <Box paddingX={20} className="sombra">
                     <form onSubmit={onSubmit}>
                         <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" className="textos1">

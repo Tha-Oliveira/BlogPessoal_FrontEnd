@@ -52,7 +52,7 @@ const dispach = useDispatch();
     setAnchorEl(null);
   };
   
-  var navbarComponent;
+  let navbarComponent;
 
   if(token !== "")
   {
