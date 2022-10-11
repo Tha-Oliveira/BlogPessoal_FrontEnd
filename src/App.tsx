@@ -12,15 +12,19 @@ import CadastroPost from './componentes/postagens/cadastroPost/CadastroPost';
 import CadastroTema from './componentes/temas/cadastroTema/CadastroTema';
 import DeletarPostagem from './componentes/postagens/deletarPostagem/DeletarPostagem';
 import DeletarTema from './componentes/temas/deletarTema/DeletarTema';
+import store from './store/Store';
+import { Provider } from 'react-redux';
 
 function App() 
 {
   return (
-    <BrowserRouter>
+    <Provider store = {store}>
+      <BrowserRouter>
       <Navbar />
 
       <div style={{minHeight:"100vh"}}>
         <Routes> {/* Antigo Switch */}
+
           <Route path="/" element={<Login />} /> 
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
@@ -39,6 +43,7 @@ function App()
 
       <Footer />
     </BrowserRouter>
+    </Provider>
   );
 }
 

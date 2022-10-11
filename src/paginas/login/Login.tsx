@@ -3,14 +3,15 @@ import "./Login.css";
 import UsuarioLogin from "../../model/UsuarioLogin";
 import { Box, Grid, Typography, TextField, Button } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-import useLocalStorage from "react-use-localstorage";
 import { login } from "../../services/Service";
-import { setFlagsFromString } from "v8";
+import { useDispatch } from "react-redux";
+import { addToken } from "../../store/tokens/Action";
 
 function Login()
 {
 let navigate = useNavigate();
-const [token, setToken] = useLocalStorage("token");
+const dispatch = useDispatch()
+const [token, setToken] = useState ("")
 
     const [usuarioLogin, setUsuarioLogin] = useState <UsuarioLogin> ({
         id: 0,
@@ -55,7 +56,8 @@ const [token, setToken] = useLocalStorage("token");
     useEffect(() => {
         if (token !== "")
         {
-        navigate("/home")
+            dispatch(addToken(token))
+            navigate("/home")
         }
     }, [token])
 

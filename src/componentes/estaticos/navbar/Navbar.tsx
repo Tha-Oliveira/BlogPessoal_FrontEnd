@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, IconButton, Box, MenuItem, Menu } from "@mui/material"
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { Link, useNavigate } from 'react-router-dom';
 import "./Navbar.css"
-import useLocalStorage from 'react-use-localstorage';
+import { useDispatch, useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/TokensReducer';
+import { addToken } from '../../../store/tokens/Action';
 
 
 
@@ -23,16 +25,18 @@ const useStyles = makeStyles((theme) => ({
 
 function Navbar() 
 {
-  const [token, setToken] = useLocalStorage ("token")
+  const token = useSelector<TokenState, TokenState ["tokens"] >(
+    (state) => state.tokens
+)
+const dispach = useDispatch();
   let navigate = useNavigate()
   
   function goLogout()
   {
-    setToken("")
+    dispach(addToken(""))
     alert("Volte sempre 😉")
     navigate("/login")
   }
-
 
   const classes = useStyles();
   const [auth, setAuth] = React.useState(true);
@@ -47,23 +51,25 @@ function Navbar()
     setAnchorEl(null);
   };
   
+  var navbarComponent;
 
-  return (
+  if(token !== "")
+  {
+    navbarComponent = 
     <div className={classes.root}>
       <AppBar position="static" style={{ borderColor: "black", backgroundColor: "#154194", color: "white" }}>
-      <Toolbar>
-        <Box>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-        </Box>
+        <Toolbar>
+          <Box>
+            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            </IconButton>
+          </Box>
 
           <Box display="flex" justifyContent="start" className="menu">
             <Link to="/home" className="text-decorator-none">
             <Box mx={1} className="cursor">
-                  <Typography color="white">
-                    Home
-                  </Typography>
+              <Typography color="white">
+                Home
+              </Typography>
             </Box>
             </Link>
 
@@ -95,41 +101,27 @@ function Navbar()
           <Typography className={classes.title}></Typography>
           <Box className="cursor" ></Box>
 
-          {auth && (
-            <div>
-              <IconButton 
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleMenu}
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={open}
-                onClose={handleClose}
-              >
-                <MenuItem onClick={handleClose}>Perfil</MenuItem>
-                <MenuItem onClick={handleClose}>Minha conta</MenuItem>
-                <MenuItem onClick={goLogout}>Logout</MenuItem>
-              </Menu>
-            </div>
-          )}
-        </Toolbar>
+            {auth && (
+              <div>
+                <IconButton aria-label="account of current user" aria-controls="menu-appbar" aria-haspopup="true" onClick={handleMenu} color="inherit">
+                  <AccountCircle />
+                </IconButton>
+                <Menu id="menu-appbar" anchorEl={anchorEl} anchorOrigin={{vertical: 'top', horizontal: 'right',}} keepMounted transformOrigin={{vertical: 'top', horizontal: 'right',}}
+                    open={open} onClose={handleClose}>
+                  <MenuItem onClick={handleClose}>Perfil</MenuItem>
+                  <MenuItem onClick={handleClose}>Minha conta</MenuItem>
+                  <MenuItem onClick={goLogout}>Logout</MenuItem>
+                </Menu>
+              </div>)}
+          </Toolbar>
       </AppBar>
     </div>
+}
+
+  return (
+    <>
+      {navbarComponent}
+    </>
   );
 }
 

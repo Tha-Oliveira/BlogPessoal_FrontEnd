@@ -1,18 +1,20 @@
-import { KeyboardReturnRounded } from "@mui/icons-material";
 import { Box, Button, Card, CardActions, CardContent, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import useLocalStorage from "react-use-localstorage";
 import Postagem from "../../../model/Postagem";
 import { buscaId, deleteId } from "../../../services/Service";
+import { TokenState } from "../../../store/tokens/TokensReducer";
 import "./DeletarPostagem.css"
 
 function DeletarPostagem()
 {
     let navigate = useNavigate()
     const {id} = useParams <{id: string}>()
-    const [token, setToken] = useLocalStorage("token")
     const [post, setPosts] = useState<Postagem>()
+    const token = useSelector<TokenState, TokenState ["tokens"] >(
+        (state) => state.tokens
+    )
     
     useEffect(() => {
         if(token === "")

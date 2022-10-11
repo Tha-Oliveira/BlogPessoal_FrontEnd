@@ -1,17 +1,19 @@
-import { backdropClasses, Button, Container, TextField, Typography } from "@mui/material";
-import { findByDisplayValue } from "@testing-library/react";
+import { Button, Container, TextField, Typography } from "@mui/material";
 import React, { ChangeEvent, useEffect, useState } from "react"
+import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import useLocalStorage from "react-use-localstorage";
 import Tema from "../../../model/Tema";
 import { buscaId, post, put } from "../../../services/Service";
+import { TokenState } from "../../../store/tokens/TokensReducer";
 import "./CadastroTema.css"
 
 function CadastroTema()
 {
 let navigate = useNavigate()
 const {id} = useParams <{id: string}>()
-const [token, setToken] = useLocalStorage("token")
+const token = useSelector<TokenState, TokenState ["tokens"] >(
+    (state) => state.tokens
+)
 const [tema, setTema] = useState<Tema>({
     id: 0,
     descricao: ""
