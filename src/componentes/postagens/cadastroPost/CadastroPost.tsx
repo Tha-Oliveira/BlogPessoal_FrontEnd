@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import Postagem from "../../../model/Postagem";
 import Tema from "../../../model/Tema";
+import UsuarioLogin from "../../../model/UsuarioLogin";
 import { busca, buscaId, post, put } from "../../../services/Service";
 import { TokenState } from "../../../store/tokens/TokensReducer";
 import "./CadastroPost.css"
@@ -38,7 +39,20 @@ const [postagem, setPostagem] = useState<Postagem> ({
     titulo: "",
     texto: "",
     data: "",
-    tema: null
+    tema: null,
+    usuario: null // linha add para inserir o usuário dono na postagem
+})
+
+const userId = useSelector <TokenState, TokenState ["id"]> (
+    (state) => state.id
+)
+
+const [usuario, setUsuario] = useState<UsuarioLogin> ({ // State que vai controlar o usuário que será inserido na postagem
+    id: +userId,
+    nome: "",
+    usuario: "",
+    senha: "",
+    foto: ""
 })
 
 useEffect(() => {

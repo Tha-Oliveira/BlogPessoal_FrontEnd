@@ -5,7 +5,7 @@ import { Box, Grid, Typography, TextField, Button } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../services/Service";
 import { useDispatch } from "react-redux";
-import { addToken } from "../../store/tokens/Action";
+import { addId, addToken } from "../../store/tokens/Action";
 import { toast } from "react-toastify";
 
 function Login()
@@ -15,6 +15,15 @@ const dispatch = useDispatch()
 const [token, setToken] = useState ("")
 
     const [usuarioLogin, setUsuarioLogin] = useState <UsuarioLogin> ({ //hook useState faz o controle dos estados dos componentes,set permite alterar
+        id: 0,
+        nome: "",
+        usuario: "",
+        senha: "",
+        foto: "",
+        token: ""
+    })
+
+    const [respUserLogin, setRespUserLogin] = useState <UsuarioLogin> ({
         id: 0,
         nome: "",
         usuario: "",
@@ -45,7 +54,7 @@ const [token, setToken] = useState ("")
         e.preventDefault(); //impede que o botao atualize a tela 
         try  //tentativa de execução
         {
-            await login(`usuarios/logar`, usuarioLogin, setToken)
+            await login(`usuarios/logar`, usuarioLogin, setRespUserLogin)
             toast.success("Seja muito bem vindo(a)!", {
                 position: "top-right", autoClose: 2000, hideProgressBar: false, closeOnClick: true, pauseOnHover: false, draggable: false, theme: "colored", progress: undefined})
         } 
@@ -63,6 +72,15 @@ const [token, setToken] = useState ("")
             navigate("/home")
         }
     }, [token])
+
+    useEffect(() => {
+        if(respUserLogin.token !== "")
+        {
+            dispatch(addToken(respUserLogin.token))
+            dispatch(addId(respUserLogin.id.toString()))
+            navigate("/home")
+        }
+    }, [respUserLogin.token])
 
     return(
         <Grid container direction="row" justifyContent="center" alignItems="center" className="imagem">
