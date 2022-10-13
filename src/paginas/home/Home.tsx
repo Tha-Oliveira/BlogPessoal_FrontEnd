@@ -44,9 +44,7 @@ function Home()
                         </Link>
                     </Box>
                 </Grid>
-                <Grid item xs={6} >
-                    <img src="https://cdn.pixabay.com/photo/2020/02/15/16/09/loveourplanet-4851331_960_720.jpg" alt="Imagem de uma garota segurando os plantas" 
-                    className="img" width="500px" height="500px" />
+                <Grid item xs={6} className="img">
                 </Grid>
                 <Grid xs={12} className="postagens">
                     <TabPostagem />

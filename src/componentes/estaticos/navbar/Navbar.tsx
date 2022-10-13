@@ -58,7 +58,7 @@ const dispach = useDispatch();
   {
     navbarComponent = 
     <div className={classes.root}>
-      <AppBar position="static" style={{ borderColor: "black", backgroundColor: "#154194", color: "white" }}>
+      <AppBar position="static" style={{ borderColor: "black", backgroundColor: "#78909c", color: "white" }}>
         <Toolbar>
           <Box>
             <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
