@@ -5,14 +5,14 @@
 
 .titulo
 {
-    color: #0097a7 !important; /* !important  = diz que essa função tem mais importacia do que a configuração do material ui*/
+    color: #996633 !important; /* !important  = diz que essa função tem mais importacia do que a configuração do material ui*/
     font-weight: bold !important;
 }
 
 .botao
 {
     border-color: #fff !important;
-    background: linear-gradient(to top left, #3333ff 0%, #ccffff 100%);
+    background: linear-gradient(to top left, #ffffff 0%, #996633 100%);
     color: #fff !important;
     margin-right: 1rem !important;
 }

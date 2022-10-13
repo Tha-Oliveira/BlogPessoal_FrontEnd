@@ -1,4 +1,4 @@
-import { backdropClasses, Button, FormControl, FormHelperText, getListItemSecondaryActionClassesUtilityClass, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
+import { Button, FormControl, FormHelperText, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import React, { ChangeEvent, useEffect, useState } from "react"
 import { useSelector } from "react-redux";
@@ -10,7 +10,7 @@ import { busca, buscaId, post, put } from "../../../services/Service";
 import { TokenState } from "../../../store/tokens/TokensReducer";
 import "./CadastroPost.css"
 
-function CadastroPost()
+function CadastroPost() // seria o produto
 {
 let navigate = useNavigate()
 const {id} = useParams<{id: string}>()

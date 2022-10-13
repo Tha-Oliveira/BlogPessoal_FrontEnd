@@ -46,7 +46,7 @@ const [token, setToken] = useState ("")
         try  //tentativa de execução
         {
             await login(`usuarios/logar`, usuarioLogin, setToken)
-            toast.success("Usuário logado com sucesso!", {
+            toast.success("Seja muito bem vindo(a)!", {
                 position: "top-right", autoClose: 2000, hideProgressBar: false, closeOnClick: true, pauseOnHover: false, draggable: false, theme: "colored", progress: undefined})
         } 
         catch (error) 
