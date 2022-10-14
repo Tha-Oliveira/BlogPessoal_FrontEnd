@@ -65,18 +65,14 @@ function ListaPostagem() {
             <CardActions>
                 {postagem.usuario?.id === +userId ? (
                     <Box display="flex" justifyContent="center" mb={1.5}>
-                    <Link
-                        to={`/formularioPostagem/${postagem.id}`}
-                        className="text-decoration-none">
+                    <Link to={`/formularioPostagem/${postagem.id}`}className="text-decorator-none">
                     <Box mx={1}>
                         <Button variant="contained" size="small" color="primary">
                             Atualizar
                         </Button>
                     </Box>
                     </Link>
-                    <Link
-                        to={`/deletarPostagem/${postagem.id}`}
-                        className="text-decoration-none">
+                    <Link to={`/deletarPostagem/${postagem.id}`} className="text-decorator-none">
                     <Box mx={1}>
                         <Button
                             variant="contained" size="small" color="secondary">
