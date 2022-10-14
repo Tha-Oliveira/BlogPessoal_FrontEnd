@@ -74,7 +74,7 @@ const [token, setToken] = useState ("")
     }, [token])
 
     useEffect(() => {
-        if(respUserLogin.token !== "")
+        if(respUserLogin.token !== "") // metodo para pegar o token e o id do json e guardar no redux
         {
             dispatch(addToken(respUserLogin.token))
             dispatch(addId(respUserLogin.id.toString()))

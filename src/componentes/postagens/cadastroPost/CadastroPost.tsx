@@ -6,7 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import Postagem from "../../../model/Postagem";
 import Tema from "../../../model/Tema";
-import UsuarioLogin from "../../../model/UsuarioLogin";
+import Usuario from "../../../model/Usuario";
 import { busca, buscaId, post, put } from "../../../services/Service";
 import { TokenState } from "../../../store/tokens/TokensReducer";
 import "./CadastroPost.css"
@@ -43,11 +43,11 @@ const [postagem, setPostagem] = useState<Postagem> ({
     usuario: null // linha add para inserir o usuário dono na postagem
 })
 
-const userId = useSelector <TokenState, TokenState ["id"]> (
+const userId = useSelector <TokenState, TokenState ["id"]> ( // Buscar o ID dentro do redux
     (state) => state.id
 )
 
-const [usuario, setUsuario] = useState<UsuarioLogin> ({ // State que vai controlar o usuário que será inserido na postagem
+const [usuario, setUsuario] = useState<Usuario> ({ // State que vai controlar o usuário que será inserido na postagem
     id: +userId,
     nome: "",
     usuario: "",
@@ -59,6 +59,7 @@ useEffect(() => {
     setPostagem ({
         ...postagem,
         tema: tema
+        usuario: usuario // add o usuario dentro da postagem que está sendo enviada para o backend
     }) 
 }, [tema])
 

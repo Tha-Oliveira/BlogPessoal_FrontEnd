@@ -2,7 +2,7 @@ import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import React, { ChangeEvent, useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import User from "../../model/Cadastro";
+import User from "../../model/Usuario";
 import {cadUsuario} from '../../services/Service'
 import "./Cadastro.css";
 
