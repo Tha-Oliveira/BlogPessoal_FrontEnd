@@ -58,7 +58,7 @@ const dispach = useDispatch();
   {
     navbarComponent = 
     <div className={classes.root}>
-      <AppBar position="static" style={{ borderColor: "black", backgroundColor: "#fff", color: "black" }}>
+      <AppBar position="static" style={{ borderColor: "black", backgroundColor: "#fff", color: "#996633" }}>
         <Toolbar>
           <Box>
             <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
@@ -68,7 +68,7 @@ const dispach = useDispatch();
           <Box display="flex" justifyContent="start" className="menu">
             <Link to="/home" className="text-decorator-none">
             <Box mx={1} className="cursor">
-              <Typography color="black">
+              <Typography color="#996633">
                 Home
               </Typography>
             </Box>
@@ -76,7 +76,7 @@ const dispach = useDispatch();
 
             <Link to="/posts" className="text-decorator-none">
             <Box mx={1} className="cursor">
-              <Typography color="black">
+              <Typography color="#996633">
                 Postagens
               </Typography>
             </Box>
@@ -84,7 +84,7 @@ const dispach = useDispatch();
 
             <Link to="/temas" className="text-decorator-none">
             <Box mx={1} className="cursor">
-              <Typography color="black">
+              <Typography color="#996633">
                 Temas
               </Typography>
             </Box>
@@ -92,7 +92,7 @@ const dispach = useDispatch();
 
             <Link to="/formularioTema" className="text-decorator-none">
             <Box mx={1} className="cursor"> {/* mx é o espaçamento entre os elementos */}
-              <Typography color="black">
+              <Typography color="#996633">
                 Cadastrar Temas
               </Typography>
             </Box>
