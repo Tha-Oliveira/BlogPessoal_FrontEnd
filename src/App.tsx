@@ -16,6 +16,7 @@ import store from './store/Store';
 import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css"
+import Perfil from './componentes/perfil/Perfil';
 
 function App() 
 {
@@ -35,6 +36,7 @@ function App()
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/temas" element={<ListaTema />} />
           <Route path="/posts" element={<ListaPostagem />} />
+          <Route path="/perfil" element={<Perfil />} />
           <Route path="/formularioPostagem" element={<CadastroPost />} />
           <Route path="/formularioPostagem/:id" element={<CadastroPost />} />
           <Route path="/formularioTema" element={<CadastroTema />} />

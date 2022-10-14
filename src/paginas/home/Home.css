@@ -12,7 +12,7 @@
 .botao
 {
     border-color: #fff !important;
-    background: linear-gradient(to top left, #ffffff 0%, #996633 100%);
+    background: linear-gradient(to top left, #33cccc 0%, #00cc00 100%);
     color: #fff !important;
     margin-right: 1rem !important;
 }

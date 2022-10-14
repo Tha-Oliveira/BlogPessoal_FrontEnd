@@ -109,7 +109,9 @@ const dispach = useDispatch();
                 </IconButton>
                 <Menu id="menu-appbar" anchorEl={anchorEl} anchorOrigin={{vertical: 'top', horizontal: 'right',}} keepMounted transformOrigin={{vertical: 'top', horizontal: 'right',}}
                     open={open} onClose={handleClose}>
+                  <Link to="/perfil" className="text-decorator-none">
                   <MenuItem onClick={handleClose}>Perfil</MenuItem>
+                  </Link>
                   <MenuItem onClick={handleClose}>Minha conta</MenuItem>
                   <MenuItem onClick={goLogout}>Logout</MenuItem>
                 </Menu>
