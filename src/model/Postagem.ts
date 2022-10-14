@@ -1,5 +1,5 @@
 import Tema from "./Tema";
-import UsuarioLogin from "./UsuarioLogin";
+import Usuario from "./Usuario";
 
 interface Postagem
 {
@@ -8,7 +8,7 @@ interface Postagem
     texto: string
     data: string
     tema?: Tema | null 
-    usuario?: UsuarioLogin | null // linha add para vincular um usuário
+    usuario?: Usuario | null // linha add para vincular um usuário
 }
 
 export default Postagem;

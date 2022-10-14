@@ -11,7 +11,7 @@ import { busca, buscaId, post, put } from "../../../services/Service";
 import { TokenState } from "../../../store/tokens/TokensReducer";
 import "./CadastroPost.css"
 
-function CadastroPost() // seria o produto
+function CadastroPost()
 {
 let navigate = useNavigate()
 const {id} = useParams<{id: string}>()
@@ -58,7 +58,7 @@ const [usuario, setUsuario] = useState<Usuario> ({ // State que vai controlar o 
 useEffect(() => {
     setPostagem ({
         ...postagem,
-        tema: tema
+        tema: tema,
         usuario: usuario // add o usuario dentro da postagem que está sendo enviada para o backend
     }) 
 }, [tema])
