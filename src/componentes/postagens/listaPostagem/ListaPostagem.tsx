@@ -10,11 +10,14 @@ import { toast } from "react-toastify";
 
 function ListaPostagem()
 {
+    let navigate = useNavigate()
     const [posts, setPosts] = useState<Postagem [] >([])
+
     const token = useSelector<TokenState, TokenState ["tokens"] >(
         (state) => state.tokens
     )
-    let navigate = useNavigate()
+
+    const userId = useSelector<TokenState, TokenState["id"]>((state) => state.id);
     
     useEffect(() =>{
         if (token === "")
@@ -59,7 +62,8 @@ function ListaPostagem()
                             </Typography>                                
                         </CardContent>
                         <CardActions>
-                            <Box display="flex" justifyContent="center" mb={1.5}>
+                            {post.usuario?.id === +userId ? (
+                                <Box display="flex" justifyContent="center" mb={1.5}>
                                 <Link to={`/formularioPostagem/${post.id}`} className="text-decorator-none">
                                     <Box mx={1}>
                                         <Button variant="contained" className="marginLeft" size="small" color="primary">
@@ -75,6 +79,20 @@ function ListaPostagem()
                                     </Box>
                                 </Link>
                             </Box>
+                            ) : (
+                                <Box display="flex" justifyContent="center" mb={1.5}>
+                                    <Box mx={1}>
+                                        <Button variant="contained" className="marginLeft" size="small" color="primary" disabled>
+                                            Atualizar
+                                        </Button>
+                                    </Box>
+                                    <Box mx={1}>
+                                        <Button variant="contained" size="small" color="secondary" disabled>
+                                            Deletar
+                                        </Button>
+                                    </Box>
+                            </Box>
+                            )}
                         </CardActions>
                     </Card>
                 </Box>
