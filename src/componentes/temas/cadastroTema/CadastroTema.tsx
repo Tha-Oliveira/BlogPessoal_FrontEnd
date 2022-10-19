@@ -8,7 +8,7 @@ import { buscaId, post, put } from "../../../services/Service";
 import { TokenState } from "../../../store/tokens/TokensReducer";
 import "./CadastroTema.css"
 
-function CadastroTema() // seria a categoria
+function CadastroTema() 
 {
 let navigate = useNavigate()
 const {id} = useParams <{id: string}>()
